@@ -39,7 +39,7 @@ export const pages = [
 function App() {
   return (
     <div className="container-fluid app-bg overflow-hidden p-0">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/">
             <MainApp />

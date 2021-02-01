@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CoursePage from "./components/CoursePage";
+import FavoritePage from "./components/FavoritePage";
+import LanguagePage from "./components/LanguagePage";
+import MainApp from "./components/MainApp";
+import Sidebar from "./components/Sidebar";
+
+export const ThemeContext = createContext("");
+export const SidebarHeight = "8vh";
+
+export const pages = [
+  {
+    name: "About",
+    to: "/about",
+    bg: "red-grad-bg text-white",
+    components: <div />,
+  },
+  {
+    name: "Courses",
+    to: "/courses",
+    bg: "blue-grad-bg text-white",
+    components: <CoursePage />,
+  },
+  {
+    name: "Programming",
+    to: "/programming",
+    bg: "green-grad-bg text-white",
+    components: <LanguagePage />,
+  },
+  {
+    name: "Favorite",
+    to: "/favorite",
+    bg: "purple-grad-bg text-white",
+    components: <FavoritePage />,
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid app-bg overflow-hidden p-0">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <MainApp />
+          </Route>
+          {pages.map((page) => (
+            <Route path={page.to} key={page.name}>
+              <div className="row">
+                <div className="col-2">
+                  <Sidebar />
+                </div>
+                <div className="col min-vh-100">{page.components}</div>
+              </div>
+            </Route>
+          ))}
+        </Switch>
+      </Router>
     </div>
   );
 }

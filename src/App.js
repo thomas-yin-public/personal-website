@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AboutPage from "./components/AboutPage";
 import CoursePage from "./components/CoursePage";
 import FavoritePage from "./components/FavoritePage";
 import LanguagePage from "./components/LanguagePage";
@@ -14,7 +15,7 @@ export const pages = [
     name: "About",
     to: "/about",
     bg: "red-grad-bg text-white",
-    components: <div />,
+    components: <AboutPage />,
   },
   {
     name: "Courses",
@@ -47,10 +48,19 @@ function App() {
           {pages.map((page) => (
             <Route path={page.to} key={page.name}>
               <div className="row">
-                <div className="col-2">
+                <div className="">
                   <Sidebar />
                 </div>
-                <div className="col min-vh-100">{page.components}</div>
+                {
+                  page.to === "/about"?
+                  page.components:
+                  <div
+                  className="col-md min-vh-100"
+                  style={{ marginLeft: "200px" }}
+                >
+                  {page.components}
+                </div>
+                }
               </div>
             </Route>
           ))}

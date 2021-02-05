@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const weekdays = [
@@ -50,6 +50,19 @@ const pageInfo = [
 ];
 
 function MainApp() {
+  const addAnimationDelay = (className, speed) => {
+    let children = document.querySelector(className).children
+    for (let i = 0; i < children.length; i++) {
+      let ele = children[i]
+      ele.className += " custom-fade"
+      ele.style.animationDelay = i/speed + 's'
+    }
+  }
+
+  useEffect(() => {
+    addAnimationDelay(".nav-tile", 5)
+  }, [])
+
   return (
     <div className="row m-0 min-vh-100 p-0">
       <div className="col-md bg-white p-5 shadow-sm">
@@ -59,7 +72,7 @@ function MainApp() {
           about me!
         </p>
       </div>
-      <div className="col-md row align-self-center p-5">
+      <div className="nav-tile col-md row align-self-center p-5">
         <h3 className="">Quick Links</h3>
         {pageInfo.map((page) => (
           <div key={page.name} className={`p-2 ${page.style}`}>

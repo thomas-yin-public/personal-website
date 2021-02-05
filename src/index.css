@@ -65,19 +65,65 @@ code {
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.788);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-modal-body {
-  width: 90%;
-  height: 95vh;
-  background-color: white;
+}
+
+.page-header {
+  overflow: hidden;
+}
+
+.white-trans-bg {
+  background: rgba(85, 85, 85, 0.63);
 }
 
 /* animation */
 .zoom-hover {
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .zoom-hover:hover {
   transform: scale(1.1);
+}
+
+@keyframes custom-fade-from-left-to-right {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+}
+
+.custom-fade {
+  animation: custom-fade-from-left-to-right 2s backwards;
+}
+
+/* page background image */
+.about-bg {
+  background-image: url(./img/about-bg-2.jpg);
+}
+
+img.about-self-pic  {
+  width: 100%;
+  border-radius: 10px;
+  border-top: 5px solid rgba(255, 255, 255, 0.493);
+  border-bottom: 5px solid rgba(255, 255, 255, 0.493);
+}
+
+.course-bg {
+  background-image: url(./img/course-bg.jpeg);
+}
+
+.lang-bg {
+  background-image: url(./img/lang-bg.jpg);
+}
+
+.fav-bg {
+  background-image: url(./img/fav-bg.jpg);
 }

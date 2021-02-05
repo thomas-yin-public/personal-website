@@ -150,15 +150,41 @@ function CoursePage() {
     return lightTheme;
   };
 
+  const addAnimationDelay = (className, speed) => {
+    let children = document.querySelector(className).children
+    for (let i = 0; i < children.length; i++) {
+      let ele = children[i]
+      ele.className += " custom-fade"
+      ele.style.animationDelay = i/speed + 's'
+    }
+  }
+
+  useEffect(() => {
+    addAnimationDelay(".table-row-fade", 10)
+  }, [])
+
   return (
     <div className="p-3">
-      <h1 className="blue-grad-bg text-white p-5 more-rounded">Courses</h1>
+      <div className="row course-bg page-header text-white p-0 m-0 more-rounded mb-2">
+        <h1 className="col-md-4 p-5">Courses</h1>
+        <p
+          className="col-md m-0 p-5 white-trans-bg"
+          style={{ fontSize: "20px" }}
+        >
+          “Let us study things that are no more. It is necessary to understand
+          them, if only to avoid them.” ― Victor Hugo, Les Misérables
+        </p>
+      </div>
       <div className="">
         <div className="d-flex flex-wrap">
           {semList.map((sem) => (
             <div
               key={sem}
-              className={`${sem === semListFilter? "btn-primary": "btn-outline-primary"} rounded-pill btn me-2`}
+              className={`${
+                sem === semListFilter
+                  ? "btn-primary blue-grad-bg"
+                  : "btn-outline-primary"
+              } rounded-pill btn me-2`}
               onClick={() => setSemListFilter(sem)}
             >
               {sem}
@@ -170,23 +196,23 @@ function CoursePage() {
         <div className="d-flex my-2">
           <input
             className="form-control rounded-pill"
-            placeholder="Type the keywords (e.g. Course code, title) to filter the list and see if I have taken this course"
+            placeholder="Type the keywords (e.g. Course code, Title) to filter the list and see if I have taken this course"
             type="text"
             value={filterInput}
             onChange={(e) => setFilterInput(e.target.value)}
           />
           <button
-            className="btn btn-primary rounded-pill ms-2"
+            className="btn btn-primary rounded-pill ms-2 blue-grad-bg"
             onClick={() => setFilterInput("")}
           >
             Clear
           </button>
         </div>
         <table
-          className={`shadow table more-rounded border table-hover ${checkTheme()}`}
+          className={`shadow-sm table more-rounded border table-hover ${checkTheme()}`}
         >
-          <tbody>
-            <tr>
+          <tbody className="table-row-fade">
+            <tr className="overflow-hidden">
               <th style={{ width: "20%" }}>Code</th>
               <th>Title</th>
             </tr>

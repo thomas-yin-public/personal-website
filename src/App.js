@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./components/AboutPage";
 import CoursePage from "./components/CoursePage";
 import FavoritePage from "./components/FavoritePage";
@@ -40,7 +40,7 @@ export const pages = [
 function App() {
   return (
     <div className="container-fluid app-bg overflow-hidden p-0">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
           <Route exact path="/">
             <MainApp />

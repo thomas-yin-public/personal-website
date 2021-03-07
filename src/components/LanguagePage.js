@@ -81,13 +81,14 @@ const langList = {
     {
       "React.js": {
         experience: [
-          "Knowing the numpy",
-          "Knowing pandas and torchvision libraries",
+          "Knowing the Class Components and Functional Components",
+          "Knowing the React Hooks",
         ],
         projects: [
           {
-            title: "CNN training model",
-            details: "Implement a CNN model with 90%+ accuracy",
+            title: "React Graph",
+            details:
+              "Implement a Web App and can handle simple data to display the graphs",
           },
         ],
       },
@@ -95,27 +96,26 @@ const langList = {
     {
       "Node.js": {
         experience: [
-          "Knowing the numpy",
-          "Knowing pandas and torchvision libraries",
+          "Knowing the basic operation using Node.js",
+          "Knowing some commonly used libraries (e.g. Express.js)",
         ],
         projects: [
           {
-            title: "CNN training model",
-            details: "Implement a CNN model with 90%+ accuracy",
+            title: "Backend Service",
+            details:
+              "Use Node.js to establish a backend server as an API server",
           },
         ],
       },
     },
     {
       SQL: {
-        experience: [
-          "Knowing the numpy",
-          "Knowing pandas and torchvision libraries",
-        ],
+        experience: ["Knowing CRUD operations"],
         projects: [
           {
-            title: "CNN training model",
-            details: "Implement a CNN model with 90%+ accuracy",
+            title: "Student databse",
+            details:
+              "Implement a Student Database to record the student's academic performances",
           },
         ],
       },
@@ -123,13 +123,14 @@ const langList = {
     {
       NoSQL: {
         experience: [
-          "Knowing the numpy",
-          "Knowing pandas and torchvision libraries",
+          "Knowing the simple CRUD operations",
+          "Knowing pipeline and aggregation",
         ],
         projects: [
           {
-            title: "CNN training model",
-            details: "Implement a CNN model with 90%+ accuracy",
+            title: "API server storage",
+            details:
+              "Implement a database for storing the information of the web app and handle the API requests",
           },
         ],
       },
@@ -137,19 +138,19 @@ const langList = {
   ],
 };
 
-function LanguagePage() { 
+function LanguagePage() {
   const addAnimationDelay = (className, speed) => {
-    let children = document.querySelector(className).children
+    let children = document.querySelector(className).children;
     for (let i = 0; i < children.length; i++) {
-      let ele = children[i]
-      ele.className += " custom-fade"
-      ele.style.animationDelay = i/speed + 's'
+      let ele = children[i];
+      ele.className += " custom-fade";
+      ele.style.animationDelay = i / speed + "s";
     }
-  }
+  };
 
   useEffect(() => {
-    addAnimationDelay(".select-fade", 2)
-  }, [])
+    addAnimationDelay(".select-fade", 2);
+  }, []);
 
   return (
     <div className="p-3 d-flex flex-column">

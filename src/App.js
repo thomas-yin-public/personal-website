@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { createContext } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./components/AboutPage";
 import CoursePage from "./components/CoursePage";
@@ -38,6 +38,7 @@ export const pages = [
 ];
 
 function App() {
+
   return (
     <div className="container-fluid app-bg overflow-hidden p-0">
       <Router>
@@ -47,20 +48,31 @@ function App() {
           </Route>
           {pages.map((page) => (
             <Route path={page.to} key={page.name}>
-              <div className="row">
+              <div
+                className={`${page.bg}`}
+                style={{
+                  height: "2vh",
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  zIndex: 100,
+                }}
+              />
+              <div className="row mt-2">
                 <div className="">
                   <Sidebar />
                 </div>
-                {
-                  page.to === "/about"?
-                  page.components:
+                {page.to === "/about" ? (
+                  page.components
+                ) : (
                   <div
-                  className="col-md min-vh-100"
-                  style={{ marginLeft: "200px" }}
-                >
-                  {page.components}
-                </div>
-                }
+                    className="col-md min-vh-100"
+                    style={{ marginLeft: "200px" }}
+                  >
+                    {page.components}
+                  </div>
+                )}
               </div>
             </Route>
           ))}

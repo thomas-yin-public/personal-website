@@ -173,7 +173,7 @@ code {
 }
 
 img.about-self-pic {
-  width: 100%;
+  width: 30%;
   border-radius: 10px;
   border-top: 5px solid rgba(255, 255, 255, 0.493);
   border-bottom: 5px solid rgba(255, 255, 255, 0.493);

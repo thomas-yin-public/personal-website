@@ -18,45 +18,33 @@ function AboutPage() {
   }, []);
 
   return (
-    <div className="about-bg max-vh-100">
-      <div className="row vh-100">
-        <div className="col-md bg-dark text-white p-4 m-auto">
-          <h1>About Me</h1>
-          <p>
-            Hello, I'm Thomas. A year 3 student studying Computing at PolyU.
-          </p>
-          <p>
-            I'm a cautious person who also good at logical thinking and
-            problem-solving. During these 3 years of studying in the department
-            of computing, I have been trained to think about things
-            systematically. I can summarize the discrete information and study
-            the information or requirement detailly and convert them into
-            meaningful and systemic information. When facing a problem or
-            dilemma, I will figure out the root of the problem first and try to
-            think of different solutions to solve the problem.
-          </p>
-          <p>
-            I'm also good at coding and programming. When programming a
-            solution, each line of code must be precise and concise. Missing a
-            character can lead to the corruption of the whole program.
-            Therefore, it makes me cautious when handling different problems
-            even in daily life.
-          </p>
-        </div>
-        <div
-          className="fade-pic col-md row m-auto d-flex flex-row align-items-center"
-          style={{ height: "80%" }}
-        >
-          <div className="col-md p-2">
-            <img src={pic1} className="about-self-pic shadow-sm" />
-          </div>
-          <div className="col-md p-2">
-            <img src={pic2} className="about-self-pic shadow-sm" />
-          </div>
-          <div className="col-md p-2">
-            <img src={pic3} className="about-self-pic shadow-sm" />
-          </div>
-        </div>
+    <div className="about-bg row min-vh-100 p-0 m-0">
+      <div className="col-md bg-dark text-white p-5">
+      <h1>About Me</h1>
+      <p>Hello, I'm Thomas. A year 3 student studying Computing at PolyU.</p>
+      <p>
+        I'm a cautious person who also good at logical thinking and
+        problem-solving. During these 3 years of studying in the department of
+        computing, I have been trained to think about things systematically. I
+        can summarize the discrete information and study the information or
+        requirement detailly and convert them into meaningful and systemic
+        information. When facing a problem or dilemma, I will figure out the
+        root of the problem first and try to think of different solutions to
+        solve the problem.
+      </p>
+      <p>
+        I'm also good at coding and programming. When programming a solution,
+        each line of code must be precise and concise. Missing a character can
+        lead to the corruption of the whole program. Therefore, it makes me
+        cautious when handling different problems even in daily life.
+      </p>
+      </div>
+      <div
+        className="fade-pic col-md row m-auto d-flex flex-row align-items-center m-5 p-5"
+      >
+        <img src={pic1} className="about-self-pic shadow-sm" />
+        <img src={pic2} className="about-self-pic shadow-sm" />
+        <img src={pic3} className="about-self-pic shadow-sm" />
       </div>
     </div>
   );

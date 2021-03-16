@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useEffect, useLayoutEffect, useState } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./components/AboutPage";
 import CoursePage from "./components/CoursePage";
@@ -38,28 +38,39 @@ export const pages = [
 ];
 
 function App() {
+  const [showloading, setShowloading] = useState(true)
+
+  window.setInterval(() => {
+    setShowloading(false)
+  }, 3000)
+
+  useEffect(() => {
+    let circles = document.getElementById("home-loading").children;
+    for (let i = 0; i < circles.length; i++) {
+      let ele = circles[i];
+      ele.style.animationDelay = i / 10 + "s";
+    }
+  }, []);
 
   return (
     <div className="container-fluid app-bg overflow-hidden p-0">
-      <Router>
+      {showloading? <div
+        id="home-loading"
+        className="d-flex flex-row vh-100 loading-screen m-auto"
+      >
+        <div className="circle m-auto" style={{ top: "50vh" }}></div>
+        <div className="circle m-auto" style={{ top: "50vh" }}></div>
+        <div className="circle m-auto" style={{ top: "50vh" }}></div>
+        <div className="circle m-auto" style={{ top: "50vh" }}></div>
+        <div className="circle m-auto" style={{ top: "50vh" }}></div>
+      </div>: <Router>
         <Switch>
           <Route exact path="/">
             <MainApp />
           </Route>
           {pages.map((page) => (
             <Route path={page.to} key={page.name}>
-              <div
-                className={`${page.bg}`}
-                style={{
-                  height: "2vh",
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  zIndex: 100,
-                }}
-              />
-              <div className="row mt-2">
+              <div className="row mt-2 pt-5">
                 <div className="">
                   <Sidebar />
                 </div>
@@ -67,8 +78,7 @@ function App() {
                   page.components
                 ) : (
                   <div
-                    className="col-md min-vh-100"
-                    style={{ marginLeft: "200px" }}
+                    className="content-container col-md min-vh-100 w-100"
                   >
                     {page.components}
                   </div>
@@ -77,7 +87,7 @@ function App() {
             </Route>
           ))}
         </Switch>
-      </Router>
+      </Router>}
     </div>
   );
 }

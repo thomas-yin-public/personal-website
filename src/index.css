@@ -13,6 +13,69 @@ code {
     monospace;
 }
 
+/* Loading screen animation  */
+.loading-screen {
+  height: 100vh;
+  width: 20vw;
+  animation: loading 1s infinite;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgb(67, 64, 224);
+  animation: grad-loading 1s infinite
+}
+
+.grad-loading {
+  animation: grad-text 1s infinite
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(0, -60px);
+  }
+
+  50% {
+    transform: translate(0, 50px);
+  }
+
+  100% {
+    transform: translate(0, -60px);
+  }
+}
+
+@keyframes enlarge {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes grad-loading {
+  0% {
+    background-color: rgb(67, 64, 224);
+  }
+
+  50% {
+    background: rgb(255, 74, 74);
+  }
+}
+
+@keyframes grad-text {
+  0% {
+    color: rgb(67, 64, 224);
+  }
+
+  50% {
+    color: rgb(255, 74, 74);
+  }
+}
+
 /* common */
 .app-bg {
   background-color: #eef0f5;
@@ -109,7 +172,7 @@ code {
   background-image: url(./img/about-bg-2.jpg);
 }
 
-img.about-self-pic  {
+img.about-self-pic {
   width: 100%;
   border-radius: 10px;
   border-top: 5px solid rgba(255, 255, 255, 0.493);
@@ -126,4 +189,35 @@ img.about-self-pic  {
 
 .fav-bg {
   background-image: url(./img/fav-bg.jpg);
+}
+
+#sidebar-button {
+  display: none;
+}
+
+/* responsive sidebar*/
+
+@media screen and (min-width: 770px) {
+  #sidebar {
+  }
+
+  #mobile-sidebar {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .loading-screen {
+    height: 100%;
+    width: 50vw;
+    animation: loading 1s infinite;
+  }
+
+  #sidebar {
+    display: none !important;
+  }
+
+  #mobile-sidebar {
+    display: block !important;
+  }
 }

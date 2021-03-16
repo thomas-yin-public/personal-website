@@ -5,32 +5,21 @@ import pic3 from "../img/me3.jpg";
 
 function AboutPage() {
   const addAnimationDelay = (className, speed) => {
-    let children = document.querySelector(className).children
+    let children = document.querySelector(className).children;
     for (let i = 0; i < children.length; i++) {
-      let ele = children[i]
-      ele.className += " custom-fade"
-      ele.style.animationDelay = i/speed + 's'
+      let ele = children[i];
+      ele.className += " custom-fade";
+      ele.style.animationDelay = i / speed + "s";
     }
-  }
+  };
 
   useEffect(() => {
-    addAnimationDelay(".fade-pic", 5)
-  }, [])
+    addAnimationDelay(".fade-pic", 5);
+  }, []);
 
   return (
-    <div className="about-bg min-vh-100">
-      <div className="row h-100" style={{ marginLeft: "250px" }}>
-        <div className="fade-pic col-md m-auto d-flex flex-row align-items-center" style={{ height: "80%" }}>
-          <div className="col-md-4 p-2">
-            <img src={pic1} className="about-self-pic shadow-sm" />
-          </div>
-          <div className="col-md-4 p-2">
-            <img src={pic2} className="about-self-pic shadow-sm" />
-          </div>
-          <div className="col-md-4 p-2">
-            <img src={pic3} className="about-self-pic shadow-sm" />
-          </div>
-        </div>
+    <div className="about-bg max-vh-100">
+      <div className="row vh-100">
         <div className="col-md bg-dark text-white p-4 m-auto">
           <h1>About Me</h1>
           <p>
@@ -53,6 +42,20 @@ function AboutPage() {
             Therefore, it makes me cautious when handling different problems
             even in daily life.
           </p>
+        </div>
+        <div
+          className="fade-pic col-md row m-auto d-flex flex-row align-items-center"
+          style={{ height: "80%" }}
+        >
+          <div className="col-md p-2">
+            <img src={pic1} className="about-self-pic shadow-sm" />
+          </div>
+          <div className="col-md p-2">
+            <img src={pic2} className="about-self-pic shadow-sm" />
+          </div>
+          <div className="col-md p-2">
+            <img src={pic3} className="about-self-pic shadow-sm" />
+          </div>
         </div>
       </div>
     </div>

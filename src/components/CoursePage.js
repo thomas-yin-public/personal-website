@@ -114,6 +114,7 @@ const semList = [
   "2018/19 Semester2",
   "2019/20 Semester1",
   "2019/20 Semester2",
+  "2020/21 Semester1",
 ];
 
 function CoursePage() {
@@ -184,7 +185,7 @@ function CoursePage() {
                 sem === semListFilter
                   ? "btn-primary blue-grad-bg"
                   : "btn-outline-primary"
-              } rounded-pill btn me-2`}
+              } rounded-pill btn me-2 mt-2`}
               onClick={() => setSemListFilter(sem)}
             >
               {sem}

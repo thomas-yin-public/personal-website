@@ -11,16 +11,20 @@ const langList = {
             title: "Production Line Scheduler",
             details:
               "Create an application to help a company to schedule production under best utilization of its plants",
-          },
+          }, {
+            title: "Embedded Programming",
+            details: "Using C to write the program for the embedded board"
+          }
         ],
       },
     },
     {
       "C++": {
         experience: [
-          "Knowing Modern C++ (e.g. C++20)",
+          "STL"
+          /* "Knowing Modern C++ (e.g. C++20)",
           "RAII",
-          "Return Value Optimazation (RVO)",
+          "Return Value Optimazation (RVO)", */
         ],
         projects: [
           {
@@ -34,7 +38,6 @@ const langList = {
     {
       Java: {
         experience: [
-          "Knowing the Gabage Collection (GC)",
           "Design pattern",
           "Generic",
         ],
@@ -51,7 +54,7 @@ const langList = {
         experience: [
           "Knowing the microtasks and macrotasks",
           "Promise",
-          "Prototype Oriented Programming",
+          "ES6"
         ],
         projects: [
           {
@@ -173,7 +176,7 @@ function LanguagePage() {
               return (
                 <div key={lang} className="flex-grow-1" pageValue={lang}>
                   <h1>{lang}</h1>
-                  <h3>Experience</h3>
+                  {langauge[lang].experience.length > 0 && <h3>Knowing</h3>}
                   <ul>
                     {langauge[lang].experience.map((item) => (
                       <li>{item}</li>
